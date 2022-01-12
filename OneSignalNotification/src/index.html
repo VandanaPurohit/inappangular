@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OneSignalNotification</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+   <!-- <script>
+    window.OneSignal = window.OneSignal || [];
+    
+    console.log("push initialize");
+    OneSignal.push(["init", {
+      appId: "0a749872-a713-4734-affa-8c7aef18e28b",
+      autoRegister: false,
+      allowLocalhostAsSecureOrigin: true,
+      notifyButton: {
+        enable: false
+      }
+    }]);
+    //console.log("push initialized");
+    OneSignal.push(function () {
+      console.log('Register For Push');
+      OneSignal.push(["registerForPushNotifications"])
+    });
+    OneSignal.push(function () {
+      console.log('Set External user id');
+      OneSignal.setExternalUserId("17f26c54-5dad-11ec-afc2-7eb24f8ea539","");
+    });
+    OneSignal.push(function () {
+      // Occurs when the user's subscription changes to a new value.
+      OneSignal.getUserId().then(function (userId) {  
+
+      OneSignal.on('subscriptionChange', function (isSubscribed) {
+        console.log("The user's subscription state is now:", isSubscribed);
+        OneSignal.getUserId().then(function (userId) {
+
+          console.log("User ID is", userId);
+         // localStorage.setItem("UserId",userId);
+        });
+      });
+    });
+  });
+  </script> -->
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+</head>
+<body>
+  <app-root></app-root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+</body>
+</html>
