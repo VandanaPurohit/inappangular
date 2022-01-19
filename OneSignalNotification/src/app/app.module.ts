@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { OnesignalserviceService } from './onesignalservice.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment'; 
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +21,10 @@ import { environment } from '../environments/environment';
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
+     
+      
     })
+    
   ],
  // providers: [],
   providers: [OnesignalserviceService],

@@ -29,6 +29,7 @@ export class OnesignalserviceService {
   }
 
   onInit(): void {
+    debugger;
     this.onLoad().then((OneSignal) => {
       //  OneSignal.init({
       //     appId: "0a749872-a713-4734-affa-8c7aef18e28b",
@@ -36,17 +37,29 @@ export class OnesignalserviceService {
     console.log("push initialize");
     OneSignal.push(["init", {
       appId: "0a749872-a713-4734-affa-8c7aef18e28b",
-      autoRegister: false,
+      autoRegister: true,
       allowLocalhostAsSecureOrigin: true,
       notifyButton: {
-        enable: false
+        enable: true
       }
+      
     }]);
     console.log("push initialized");
     OneSignal.push(function () {
-      console.log('Set External user id');
-      OneSignal.setExternalUserId("17f26c54-5dad-11ec-afc2-7eb24f8ea539","");
+      console.log('Register For Push');
+      OneSignal.push(["registerForPushNotifications"])
+      console.log('Registered For Push');
+      
     });
+    //ExternalUserId( - logged in user id - Type - GUID
+    OneSignal.push(function () {
+  
+      OneSignal.setExternalUserId("3bb306e5-2aae-4768-adda-9badf26afead","F4CE1FBFFFD02B1426E5F75EA74307387F4E0978A9A37E4844733D80B20FE941");
+      console.log('Registered For external user id in Onesignal as "3bb306e5-2aae-4768-adda-9badf26afead"');
+      OneSignal.push(["registerForPushNotifications"])
+     
+    });
+   
     OneSignal.push(function () {
       // Occurs when the user's subscription changes to a new value.
       OneSignal.getUserId().then(function (userId) {  
